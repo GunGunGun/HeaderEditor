@@ -23,7 +23,8 @@ jobs:
           #wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
           pnpm i
           npm run build
-          zip -r headereditor.zip ./dist
+          #zip -r headereditor.zip ./dist
+          run ls
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
@@ -31,3 +32,10 @@ jobs:
           name: Addon
           tag_name: all
           body: Download Here
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: ./dist
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+          
