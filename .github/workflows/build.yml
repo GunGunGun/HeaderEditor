@@ -18,7 +18,7 @@ jobs:
           cd HeaderEditor/
           npm i pnpm
           pnpm i
-          npm run build
+          npm run build --force
           zip -r headereditor.zip ./dist
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
