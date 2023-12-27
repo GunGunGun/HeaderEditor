@@ -26,6 +26,7 @@ jobs:
           zip -r headereditor.zip ./dist
           ls
           pwd
+          cd /home/runner/work/HeaderEditor/HeaderEditor/HeaderEditor
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
@@ -40,7 +41,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: ./headereditor.zip
+          path: /home/runner/work/HeaderEditor/HeaderEditor/HeaderEditor
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
           
