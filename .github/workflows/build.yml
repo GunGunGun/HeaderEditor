@@ -1,0 +1,30 @@
+name: Build
+on:
+  workflow_dispatch:
+jobs:
+  Build:
+    name: Build
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+      - name: Build
+        run: |
+          git clone https://github.com/GunGunGun/HeaderEditor.git
+          cd HeaderEditor/
+          npm i pnpm
+          pnpm i
+          npm run build
+          zip -r headereditor.zip ./dist
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          files: |
+            ./headereditor.zip
+          name: Addon
+          tag_name: all
+          body: Download Here
