@@ -16,7 +16,8 @@ jobs:
         run: |
           git clone https://github.com/GunGunGun/HeaderEditor.git
           cd HeaderEditor/
-          npm i -g pnpm
+          #npm i -g pnpm
+          wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
           pnpm i
           npm run build
           zip -r headereditor.zip ./dist
