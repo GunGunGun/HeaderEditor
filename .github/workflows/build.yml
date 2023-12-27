@@ -25,12 +25,15 @@ jobs:
           npm run build
           zip -r headereditor.zip ./dist
           ls
+          pwd
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
           files: |
-            headereditor.zip
-            dist
+            /headereditor.zip
+            ./headereditor.zip
+            /dist
+            ./dist
           name: Addon
           tag_name: all
           body: Download Here
