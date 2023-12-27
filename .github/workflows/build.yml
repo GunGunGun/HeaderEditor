@@ -16,7 +16,7 @@ jobs:
         run: |
           git clone https://github.com/GunGunGun/HeaderEditor.git
           cd HeaderEditor/
-          npm i pnpm
+          npm i -g pnpm
           pnpm i
           npm run build
           zip -r headereditor.zip ./dist
