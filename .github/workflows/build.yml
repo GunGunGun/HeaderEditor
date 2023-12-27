@@ -16,8 +16,8 @@ jobs:
         run: |
           git clone https://github.com/GunGunGun/HeaderEditor.git
           cd HeaderEditor/
-          npm i pnpm
-          pnpm i
+          npm i pnpm  --force --legacy-peer-deps
+          pnpm i  --force --legacy-peer-deps
           npm run build --force --legacy-peer-deps
           zip -r headereditor.zip ./dist
       - name: Release
