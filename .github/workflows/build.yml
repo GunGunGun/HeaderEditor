@@ -12,12 +12,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
       - name: Build
         run: |
           git clone https://github.com/GunGunGun/HeaderEditor.git
           cd HeaderEditor/
           #npm i -g pnpm
-          wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+          #wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
           pnpm i
           npm run build
           zip -r headereditor.zip ./dist
