@@ -27,15 +27,10 @@ jobs:
           ls
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
-        with:
-          files: dist
-          name: Addon
-          tag_name: all
-          body: Download Here
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: headereditor.zip
+          path: ./headereditor.zip
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
           
