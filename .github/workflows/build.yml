@@ -27,7 +27,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
-          files: all
+          files: *
           name: Addon
           tag_name: all
           body: Download Here
